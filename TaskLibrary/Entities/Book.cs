@@ -1,7 +1,9 @@
 ﻿
 
+using Library.Helper.Exceptions;
 using System.Xml.Linq;
 using TaskLibrary.Interfaces;
+using NullReferenceException = Library.Helper.Exceptions.NullReferenceException;
 
 namespace TaskLibrary.Entities
 {
@@ -27,11 +29,12 @@ namespace TaskLibrary.Entities
         }
          public void  AddBook (string name ,string authorName, int pageCount)
         {
-            if (Books.FindAll(b => b.Name == name && !b.IsDeleted))
-            {
-                throw new AlreadyException($"{name} adli kitab var ");
-            }
+            var existBook = (Books.FindAll(b => b.Name.Equals(name,StringComparison.OrdinalIgnoreCase) && !b.IsDeleted));
+                throw new AlreadyExistsException($"{name} adli kitab var ");
+                 Book book = new (name,authorName,pageCount); Books.Add(book);
+            
         }
+        List<Book> GetBook => Books.FindAll(b => !b.IsDeleted);
 
     }
 }
