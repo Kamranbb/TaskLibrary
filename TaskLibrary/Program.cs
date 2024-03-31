@@ -41,7 +41,6 @@ namespace TaskLibrary
                         break;
                         case 2:
                         foreach (var item in library.GetBook()) Console.WriteLine(item);
-                        
                         break;   
                         
                 }
