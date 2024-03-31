@@ -6,11 +6,13 @@ namespace TaskLibrary
     {
         static void Main(string[] args)
         {
-        
+            TaskLibrary.Entities.Library library = new TaskLibrary.Entities.Library();
+
 
             while (true) 
             
             {
+               
                 Console.WriteLine("1 Add Book ");
                 Console.WriteLine("2 Butun Kitablar");
 
@@ -28,6 +30,7 @@ namespace TaskLibrary
                             string authorName = Console.ReadLine();
                             Console.WriteLine("Kitab Sehifesi Daxil et ");
                             int pageCount = int.Parse(Console.ReadLine());
+                            library.AddBook(name, authorName, pageCount);   
                         }
                         catch (Exception ex)
                         {
@@ -37,11 +40,10 @@ namespace TaskLibrary
                         }  
                         break;
                         case 2:
-
-                        foreach (var item in Book.)
-                        {
-                            
-                        }
+                        foreach (var item in library.GetBook()) Console.WriteLine(item);
+                        
+                        break;   
+                        
                 }
 
 
