@@ -2,7 +2,7 @@
 
 namespace Library.Helper.Exceptions
 {
-    internal class AlreadyExistsException:Exception
+    public class AlreadyExistsException:Exception
     {
         public AlreadyExistsException() { }
         public AlreadyExistsException(string message) : base(message) { }

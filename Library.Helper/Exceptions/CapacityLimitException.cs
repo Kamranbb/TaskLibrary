@@ -2,7 +2,7 @@
 
 namespace Library.Helper.Exceptions
 {
-    internal class CapacityLimitException:Exception
+    public class CapacityLimitException:Exception
     {
         public CapacityLimitException() { }
         public CapacityLimitException(string message) : base(message) { }
