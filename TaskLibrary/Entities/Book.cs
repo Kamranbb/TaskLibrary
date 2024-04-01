@@ -14,18 +14,22 @@ namespace TaskLibrary.Entities
         public string AuthorName { get; set; }   
         public int PageCount { get; set; }  
         public bool IsDeleted { get; set; }
-        public Guid Id { get ; set ; }
+       
+        public int Id { get ; set ; }
+        static int StaticId;
+
         
         public Book(string name, string authorName, int pageCount)
         {
             Name = name;
             AuthorName = authorName;
             PageCount = pageCount;
-           
+            StaticId++;
+            Id = StaticId;
         }
         public override string ToString()
         {
-            return $"Name:{Name}, AuthorName:{AuthorName}, PageCount:{PageCount}";
+            return $"Id:{Id}, Name:{Name}, AuthorName:{AuthorName}, PageCount:{PageCount}";
         }
        
 
